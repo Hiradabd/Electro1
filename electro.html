@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دنیای موتورهای صنعتی - تخصصی ترین مرجع موتورهای الکتریکی و تهویه</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .tech-bg {
+            background: 
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .motor-bg {
+            background: 
+                linear-gradient(to bottom, rgba(30, 58, 138, 0.9), rgba(30, 64, 175, 0.9)),
+                url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 99;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        /* New Styles */
+        .header-gradient {
+            background: linear-gradient(90deg, #1a237e 0%, #283593 100%);
+        }
+        
+        .specs-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .specs-table tr:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .tab-button.active {
+            border-bottom: 3px solid #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        
+        .search-box {
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus-within {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        .category-card:hover .category-icon {
+            transform: scale(1.1);
+        }
+        
+        .category-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .highlight-box {
+            position: relative;
+            padding: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(30, 64, 175, 0.15));
+            z-index: -1;
+        }
+        
+        .motor-type-tab {
+            transition: all 0.3s ease;
+        }
+        
+        .motor-type-tab.active {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        
+        /* Animation for the hero section */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating-motor {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Technical diagram styles */
+        .motor-diagram {
+            width: 100%;
+            position: relative;
+        }
+        
+        .diagram-part {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .diagram-part:hover {
+            transform: scale(1.2);
+            background-color: #1d4ed8;
+        }
+        
+        .diagram-info {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            width: 200px;
+        }
+        
+        /* Radial graph for motor specs */
+        .radial-graph {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        
+        .radial-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#e5e7eb 0% 100%);
+        }
+        
+        .radial-fill {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#3b82f6 0% var(--percentage));
+            clip-path: circle(50% at 50% 50%);
+        }
+        
+        .radial-center {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            background-color: white;
+            border-radius: 50%;
+            top: 15%;
+            left: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-gray-900 text-white py-2 px-4 text-sm">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse mb-2 md:mb-0">
+                <div class="flex items-center">
+                    <i class="fas fa-phone-alt ml-2"></i>
+                    <span>021-88776655</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-envelope ml-2"></i>
+                    <span>info@motor-world.ir</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <span>ساعات کار: شنبه تا چهارشنبه 8:00 تا 18:00 | پنجشنبه ها 8:00 تا 14:00</span>
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <a href="#" class="hover:text-blue-200 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-blue-200 transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-blue-200 transition"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header-gradient shadow-md py-3 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://via.placeholder.com/50x50?text=MW" alt="Logo" class="h-12 rounded-full border-2 border-white">
+                    <h1 class="text-xl font-bold mr-2 hidden sm:block text-white">دنیای موتورهای صنعتی</h1>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6 space-x-reverse">
+                    <div class="relative search-box">
+                        <input type="text" placeholder="جستجوی موتورها و تجهیزات..." class="py-2 px-4 pr-10 rounded-full w-64 focus:outline-none">
+                        <button class="absolute left-3 top-2 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="dropdown relative">
+                        <button class="text-white hover:text-blue-200 flex items-center">
+                            <span>انواع موتورها</span>
+                            <i class="fas fa-chevron-down mr-2 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute hidden mt-2 w-48 bg-white rounded-md shadow-lg z-50">
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">موتورهای AC</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">موتورهای DC</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">موتورهای صنعتی</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">موتورهای دینامی</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">موتورهای خطی</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="text-white hover:text-blue-200">صفحه اصلی</a>
+                    <a href="#products" class="text-white hover:text-blue-200">محصولات</a>
+                    <a href="#technology" class="text-white hover:text-blue-200">فناوری</a>
+                    <a href="#about" class="text-white hover:text-blue-200">درباره ما</a>
+                    <a href="#contact" class="text-white hover:text-blue-200">تماس با ما</a>
+                    
+                    <div class="flex items-center">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-headset ml-2"></i>
+                            <span>مشاوره فنی</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-full text-white">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+                    
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg mt-2">
+                <div class="flex flex-col space-y-2 p-4">
+                    <div class="relative">
+                        <input type="text" placeholder="جستجوی موتورها..." class="py-2 px-4 pr-10 rounded-full w-full border focus:outline-none">
+                        <button class="absolute left-3 top-2 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <a href="#" class="py-2 px-4 hover:bg-gray-100 rounded">صفحه اصلی</a>
+                    <a href="#products" class="py-2 px-4 hover:bg-gray-100 rounded">محصولات</a>
+                    <a href="#technology" class="py-2 px-4 hover:bg-gray-100 rounded">فناوری</a>
+                    <a href="#about" class="py-2 px-4 hover:bg-gray-100 rounded">درباره ما</a>
+                    <a href="#contact" class="py-2 px-4 hover:bg-gray-100 rounded">تماس با ما</a>
+                    
+                    <div class="pt-2 border-t">
+                        <h4 class="font-bold mb-2">انواع موتورها</h4>
+                        <div class="flex flex-col space-y-1">
+                            <a href="#" class="py-1 px-4 hover:bg-gray-100 rounded">موتورهای AC</a>
+                            <a href="#" class="py-1 px-4 hover:bg-gray-100 rounded">موتورهای DC</a>
+                            <a href="#" class="py-1 px-4 hover:bg-gray-100 rounded">موتورهای صنعتی</a>
+                            <a href="#" class="py-1 px-4 hover:bg-gray-100 rounded">موتورهای دینامی</a>
+                            <a href="#" class="py-1 px-4 hover:bg-gray-100 rounded">موتورهای خطی</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="motor-bg text-white py-16 md:py-24 relative overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">تخصصی ترین مرجع موتورهای الکتریکی و صنعتی</h1>
+                <p class="text-lg mb-6">ارائه دهنده انواع موتورهای صنعتی، تجهیزات تهویه و سیستم های خنک کننده با تکنولوژی روز دنیا</p>
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 space-x-reverse">
+                    <a href="#products" class="bg-white text-blue-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 text-center transition shadow-md flex items-center justify-center">
+                        <span>مشاهده محصولات</span>
+                        <i class="fas fa-chevron-left mr-2"></i>
+                    </a>
+                    <a href="#technology" class="border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-800 text-center transition flex items-center justify-center">
+                        <span>دانش فنی موتورها</span>
+                        <i class="fas fa-book ml-2"></i>
+                    </a>
+                </div>
+                                
+                <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="flex items-center bg-blue-800 bg-opacity-30 p-3 rounded-lg">
+                        <div class="bg-white bg-opacity-20 rounded-full p-2 mr-2">
+                            <i class="fas fa-award text-white"></i>
+                        </div>
+                        <span>دارای تاییدیه ISO 9001</span>
+                    </div>
+                    <div class="flex items-center bg-blue-800 bg-opacity-30 p-3 rounded-lg">
+                        <div class="bg-white bg-opacity-20 rounded-full p-2 mr-2">
+                            <i class="fas fa-tools text-white"></i>
+                        </div>
+                        <span>بیش از 200 مدل موتور</span>
+                    </div>
+                    <div class="flex items-center bg-blue-800 bg-opacity-30 p-3 rounded-lg">
+                        <div class="bg-white bg-opacity-20 rounded-full p-2 mr-2">
+                            <i class="fas fa-users text-white"></i>
+                        </div>
+                        <span>پشتیبانی تخصصی</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative floating-motor">
+                    <img src="https://via.placeholder.com/500x400?text=Industrial+Motor" alt="Industrial Motors" class="rounded-lg shadow-xl w-full max-w-md border-4 border-white">
+                    <div class="absolute -bottom-4 -right-4 bg-blue-600 text-white px-6 py-2 rounded-lg shadow-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-certificate text-xl ml-2"></i>
+                            <div>
+                                <div class="text-xs">استانداردهای معتبر</div>
+                                <div class="font-bold">ISO, CE, UL</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">شرکای تجاری و نمایندگی‌ها</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6">
+                <div class="bg-white p-4 rounded-lg flex justify-center items-center h-24 hover:shadow-md transition border border-gray-200">
+                    <img src="https://via.placeholder.com/120x60?text=Siemens" alt="Siemens" class="h-12 object-contain">
+                </div>
+                <div class="bg-white p-4 rounded-lg flex justify-center items-center h-24 hover:shadow-md transition border border-gray-200">
+                    <img src="https://via.placeholder.com/120x60?text=ABB" alt="ABB" class="h-12 object-contain">
+                </div>
+                <div class="bg-white p-4 rounded-lg flex justify-center items-center h-24 hover:shadow-md transition border border-gray-200">
+                    <img src="https://via.placeholder.com/120x60?text=WEG" alt="WEG" class="h-12 object-contain">
+                </div>
+                <div class="bg-white p-4 rounded-lg flex justify-center items-center h-24 hover:shadow-md transition border border-gray-200">
+                    <img src="https://via.placeholder.com/120x60?text=TECO" alt="TECO" class="h-12 object-contain">
+                </div>
+                <div class="bg-white p-4 rounded-lg flex justify-center items-center h-24 hover:shadow-md transition border border-gray-200">
+                    <img src="https://via.placeholder.com/120x60?text=LG" alt="LG" class="h-12 object-contain">
+                </div>
+                <div class="bg-white p-4 rounded-lg flex justify-center items-center h-24 hover:shadow-md transition border border-gray-200">
+                    <img src="https://via.placeholder.com/120x60?text=Motogen" alt="Motogen" class="h-12 object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motor Types -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">دسته بندی انواع موتورها</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition border border-gray-200 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-bolt text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">موتورهای AC صنعتی</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">موتورهای قدرتمند سه فاز با توانایی کار در شرایط سخت صنعتی و محیط های با دمای بالا</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-600 font-medium">15 مدل مختلف</span>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center text-sm">
+                            <span>مشاهده</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition border border-gray-200 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-cog text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">موتورهای DC کنترل دقیق</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">موتورهای با کنترل دقیق سرعت و گشتاور برای کاربردهای حساس و دقیق صنعتی</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-600 font-medium">8 مدل مختلف</span>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center text-sm">
+                            <span>مشاهده</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition border border-gray-200 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-wind text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">موتورهای تهویه و کولر</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">موتورهای مخصوص سیستم های تهویه و خنک کننده صنعتی و خانگی با راندمان بالا</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-600 font-medium">12 مدل مختلف</span>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center text-sm">
+                            <span>مشاهده</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition border border-gray-200 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-water text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">موتورهای پمپ آب</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">موتورهای مقاوم در برابر رطوبت مخصوص پمپ های آب صنعتی و کشاورزی</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-600 font-medium">10 مدل مختلف</span>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center text-sm">
+                            <span>مشاهده</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition border border-gray-200 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-robot text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">موتورهای سروو درایو</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">موتورهای دقیق با کنترل فیدبک برای کاربردهای رباتیک و اتوماسیون صنعتی</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-600 font-medium">6 مدل مختلف</span>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center text-sm">
+                            <span>مشاهده</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition border border-gray-200 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-industry text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">موتورهای خطی و خاص</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">موتورهای طراحی شده برای کاربردهای خاص با قابلیت های منحصر به فرد</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-600 font-medium">5 مدل مختلف</span>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center text-sm">
+                            <span>مشاهده</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motor Comparison -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">مقایسه موتورهای پرکاربرد</h2>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-12">
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-4 text-blue-800">جدول مقایسه موتورهای AC سه فاز</h3>
+                    <div class="overflow-x-auto">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>ویژگی</th>
+                                    <th>سری IE1</th>
+                                    <th>سری IE2</th>
+                                    <th>سری IE3</th>
+                                    <th>سری IE4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-medium">رده بازدهی</td>
+                                    <td>استاندارد</td>
+                                    <td>بالا</td>
+                                    <td>پرمصرف</td>
+                                    <td>سوپر پرمصرف</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">مصرف انرژی</td>
+                                    <td>100%</td>
+                                    <td>85-90%</td>
+                                    <td>75-85%</td>
+                                    <td>60-75%</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">هزینه اولیه</td>
+                                    <td>کم</td>
+                                    <td>متوسط</td>
+                                    <td>زیاد</td>
+                                    <td>خیلی زیاد</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">هزینه بهره برداری</td>
+                                    <td>زیاد</td>
+                                    <td>متوسط</td>
+                                    <td>کم</td>
+                                    <td>خیلی کم</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">گارانتی</td>
+                                    <td>12 ماه</td>
+                                    <td>24 ماه</td>
+                                    <td>36 ماه</td>
+                                    <td>48 ماه</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition flex items-center mx-auto">
+                    <i class="fas fa-download ml-2"></i>
+                    <span>دریافت کاتالوگ کامل مقایسه موتورها (PDF)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="tech-bg py-16 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">دانش فنی موتورهای الکتریکی</h2>
+                <p class="max-w-3xl mx-auto">آشنایی با آخرین تکنولوژی‌ها و استانداردهای صنعت موتورهای الکتریکی و سیستم های خنک کننده</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition">
+                    <div class="tech-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">کنترلرهای هوشمند</h3>
+                    <p class="text-white text-opacity-90">استفاده از آخرین نسل کنترلرهای هوشمند با قابلیت اتصال به اینترنت اشیا (IoT) برای مانیتورینگ و کنترل موتورها</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition">
+                    <div class="tech-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">انرژی پاک</h3>
+                    <p class="text-white text-opacity-90">موتورهای سازگار با محیط زیست با راندمان انرژی بالا و کاهش مصرف تا 40% نسبت به مدل های قدیمی</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition">
+                    <div class="tech-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">آنالیز وضعیت</h3>
+                    <p class="text-white text-opacity-90">سیستم های پیشرفته آنالیز وضعیت موتورها برای پیش‌بینی خرابی ها و بهینه سازی عملکرد</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition">
+                    <div class="tech-icon">
+                        <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">سیستم های خنک‌کننده</h3>
+                    <p class="text-white text-opacity-90">تکنولوژی های نوین در سیستم های خنک کننده موتورها برای افزایش طول عمر و بهبود عملکرد</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition">
+                    <div class="tech-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">حفاظت و ایمنی</h3>
+                    <p class="text-white text-opacity-90">سیستم های حفاظتی پیشرفته برای جلوگیری از آسیب های ناشی از اضافه بار، نوسان ولتاژ و گرمای بیش از حد</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition">
+                    <div class="tech-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">ایمنی و استحکام</h3>
+                    <p class="text-white text-opacity-90">استفاده از مواد مقاوم و طراحی های مهندسی شده برای کار در شرایط سخت صنعتی و محیط های خورنده</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white border-opacity-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">نمودار تکامل استانداردهای موتورهای صنعتی</h3>
+                        <p class="mb-4 text-white text-opacity-90">طی سالیان اخیر استانداردهای موتورهای الکتریکی به سمت افزایش راندمان و کاهش مصرف انرژی حرکت کرده است. این نمودار نشان دهنده پیشرفت استانداردها از IE1 تا IE4 می‌باشد.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
+                                <span>IE1: استاندارد (سال 2008)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-4 h-4 bg-yellow-500 rounded-full mr-2"></span>
+                                <span>IE2: بالا (سال 2011)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-4 h-4 bg-green-500 rounded-full mr-2"></span>
+                                <span>IE3: پرمصرف (سال 2015)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-4 h-4 bg-blue-500 rounded-full mr-2"></span>
+                                <span>IE4: سوپر پرمصرف (سال 2020)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400?text=Motor+Efficiency+Chart" alt="Efficiency Chart" class="rounded-lg w-full">
+                        <div class="absolute -bottom-4 -right-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
+                            منبع: IEC 60034-30-1
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="products" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold mb-4 sm:mb-0">نمونه محصولات صنعتی</h2>
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                        مشاهده همه محصولات
+                        <i class="fas fa-chevron-left mr-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <div class="flex flex-wrap gap-2 justify-center">
+                    <button class="motor-type-tab px-4 py-2 rounded-full bg-blue-100 text-blue-800 font-medium">موتورهای AC</button>
+                    <button class="motor-type-tab px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium">موتورهای DC</button>
+                    <button class="motor-type-tab px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium">موتورهای خطی</button>
+                    <button class="motor-type-tab px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium">موتورهای سروو</button>
+                    <button class="motor-type-tab px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium">موتورهای پله‌ای</button>
+                </div>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-gray-50 rounded-lg shadow-sm overflow-hidden transition duration-300 border border-gray-200">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400?text=AC+Motor+5HP" alt="AC Motor 5HP" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">موتور AC سه فاز 5 اسب IE3</h3>
+                        <div class="mb-3">
+                            <table class="w-full text-sm">
+                                <tr>
+                                    <td class="text-gray-500 py-1">توان:</td>
+                                    <td class="font-medium">5 HP (3.7kW)</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">سرعت:</td>
+                                    <td class="font-medium">1500 RPM</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">فریم:</td>
+                                    <td class="font-medium">132S</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">درجه حفاظت:</td>
+                                    <td class="font-medium">IP55</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 text-sm flex items-center">
+                                <span>جزئیات فنی</span>
+                                <i class="fas fa-chevron-left mr-2"></i>
+                            </a>
+                            <button class="text-blue-600 hover:text-blue-800 text-sm flex items-center">
+                                <span>درخواست کاتالوگ</span>
+                                <i class="fas fa-download mr-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-gray-50 rounded-lg shadow-sm overflow-hidden transition duration-300 border border-gray-200">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400?text=DC+Servo+Motor" alt="DC Servo Motor" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">موتور سروو DC 1.5kW</h3>
+                        <div class="mb-3">
+                            <table class="w-full text-sm">
+                                <tr>
+                                    <td class="text-gray-500 py-1">توان:</td>
+                                    <td class="font-medium">1.5 kW</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">سرعت:</td>
+                                    <td class="font-medium">3000 RPM</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">گشتاور:</td>
+                                    <td class="font-medium">4.8 Nm</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">اینکودر:</td>
+                                    <td class="font-medium">17-bit</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 text-sm flex items-center">
+                                <span>جزئیات فنی</span>
+                                <i class="fas fa-chevron-left mr-2"></i>
+                            </a>
+                            <button class="text-blue-600 hover:text-blue-800 text-sm flex items-center">
+                                <span>درخواست کاتالوگ</span>
+                                <i class="fas fa-download mr-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-gray-50 rounded-lg shadow-sm overflow-hidden transition duration-300 border border-gray-200">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400?text=AC+Motor+10HP" alt="AC Motor 10HP" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">موتور AC سه فاز 10 اسب IE4</h3>
+                        <div class="mb-3">
+                            <table class="w-full text-sm">
+                                <tr>
+                                    <td class="text-gray-500 py-1">توان:</td>
+                                    <td class="font-medium">10 HP (7.5kW)</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">سرعت:</td>
+                                    <td class="font-medium">1500 RPM</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">فریم:</td>
+                                    <td class="font-medium">160M</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">درجه حفاظت:</td>
+                                    <td class="font-medium">IP55</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 text-sm flex items-center">
+                                <span>جزئیات فنی</span>
+                                <i class="fas fa-chevron-left mr-2"></i>
+                            </a>
+                            <button class="text-blue-600 hover:text-blue-800 text-sm flex items-center">
+                                <span>درخواست کاتالوگ</span>
+                                <i class="fas fa-download mr-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-gray-50 rounded-lg shadow-sm overflow-hidden transition duration-300 border border-gray-200">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400?text=Linear+Motor" alt="Linear Motor" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">موتور خطی با دقت بالا</h3>
+                        <div class="mb-3">
+                            <table class="w-full text-sm">
+                                <tr>
+                                    <td class="text-gray-500 py-1">نیرو:</td>
+                                    <td class="font-medium">2000 N</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">سرعت:</td>
+                                    <td class="font-medium">2 m/s</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">دقت:</td>
+                                    <td class="font-medium">±5 μm</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-gray-500 py-1">طول کورس:</td>
+                                    <td class="font-medium">500 mm</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 text-sm flex items-center">
+                                <span>جزئیات فنی</span>
+                                <i class="fas fa-chevron-left mr-2"></i>
+                            </a>
+                            <button class="text-blue-600 hover:text-blue-800 text-sm flex items-center">
+                                <span>درخواست کاتالوگ</span>
+                                <i class="fas fa-download mr-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Motor Diagram -->
+            <div class="mt-16 bg-gray-50 rounded-lg shadow-sm p-6 border border-gray-200">
+                <h3 class="text-xl font-bold mb-6 text-center">ساختار داخلی یک موتور AC سه فاز</h3>
+                <div class="relative motor-diagram">
+                    <img src="https://via.placeholder.com/800x400?text=Motor+Diagram" alt="Motor Diagram" class="w-full rounded-lg">
+                    
+                    <!-- Interactive parts -->
+                    <div class="diagram-part" style="top: 30%; left: 25%;" data-info="stator">
+                        <span>1</span>
+                        <div class="diagram-info" id="stator-info">
+                            <h4 class="font-bold">استاتور</h4>
+                            <p class="text-sm">قسمت ثابت موتور که شامل سیم پیچی ها می‌باشد و میدان مغناطیسی دوار ایجاد می‌کند.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="diagram-part" style="top: 40%; left: 50%;" data-info="rotor">
+                        <span>2</span>
+                        <div class="diagram-info" id="rotor-info">
+                            <h4 class="font-bold">روتور</h4>
+                            <p class="text-sm">قسمت دوار موتور که تحت تاثیر میدان مغناطیسی استاتور شروع به چرخش می‌کند.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="diagram-part" style="top: 60%; left: 35%;" data-info="bearing">
+                        <span>3</span>
+                        <div class="diagram-info" id="bearing-info">
+                            <h4 class="font-bold">یاتاقان</h4>
+                            <p class="text-sm">قطعاتی که اصطکاک را کاهش داده و چرخش روان روتور را امکان‌پذیر می‌کنند.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="diagram-part" style="top: 25%; left: 70%;" data-info="cooling">
+                        <span>4</span>
+                        <div class="diagram-info" id="cooling-info">
+                            <h4 class="font-bold">سیستم خنک‌کننده</h4>
+                            <p class="text-sm">پره‌های خنک کننده و فن که حرارت تولید شده در موتور را دفع می‌کنند.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white p-3 rounded-lg border border-gray-200">
+                        <div class="radial-graph">
+                            <div class="radial-bg"></div>
+                            <div class="radial-fill" style="--percentage: 85%"></div>
+                            <div class="radial-center">85%</div>
+                        </div>
+                        <p class="text-center mt-2 font-medium">راندمان انرژی</p>
+                    </div>
+                    
+                    <div class="bg-white p-3 rounded-lg border border-gray-200">
+                        <div class="radial-graph">
+                            <div class="radial-bg"></div>
+                            <div class="radial-fill" style="--percentage: 95%"></div>
+                            <div class="radial-center">95%</div>
+                        </div>
+                        <p class="text-center mt-2 font-medium">ضریب توان</p>
+                    </div>
+                    
+                    <div class="bg-white p-3 rounded-lg border border-gray-200">
+                        <div class="radial-graph">
+                            <div class="radial-bg"></div>
+                            <div class="radial-fill" style="--percentage: 72%"></div>
+                            <div class="radial-center">72 dB</div>
+                        </div>
+                        <p class="text-center mt-2 font-medium">سطح صدا</p>
+                    </div>
+                    
+                    <div class="bg-white p-3 rounded-lg border border-gray-200">
+                        <div class="radial-graph">
+                            <div class="radial-bg"></div>
+                            <div class="radial-fill" style="--percentage: 90%"></div>
+                            <div class="radial-center">90%</div>
+                        </div>
+                        <p class="text-center mt-2 font-medium">ضریب بار</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">کاربردهای موتورهای صنعتی</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                    <img src="https://via.placeholder.com/600x300?text=Manufacturing" alt="Manufacturing" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">صنایع تولیدی و ماشین‌آلات</h3>
+                        <p class="text-gray-600 mb-4">موتورهای صنعتی پر قدرت برای خطوط تولید، دستگاه‌های CNC، پرس‌ها و سایر تجهیزات تولیدی</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            <span>نمایش محصولات مرتبط</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                    <img src="https://via.placeholder.com/600x300?text=Pump" alt="Pump Systems" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">سیستم‌های پمپاژ و آب</h3>
+                        <p class="text-gray-600 mb-4">موتورهای مقاوم در برابر رطوبت برای پمپ‌های آب، فاضلاب، آبیاری و سیستم‌های انتقال مایعات</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            <span>نمایش محصولات مرتبط</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                    <img src="https://via.placeholder.com/600x300?text=Ventilation" alt="Ventilation" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">تهویه و سیستم‌های HVAC</h3>
+                        <p class="text-gray-600 mb-4">موتورهای کم صدا و پر بازده برای فن‌ها، هواکش‌ها، کولرها و سیستم‌های تهویه مطبوع</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            <span>نمایش محصولات مرتبط</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                    <img src="https://via.placeholder.com/600x300?text=Conveyor" alt="Conveyor" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">نقاله‌ها و انتقال مواد</h3>
+                        <p class="text-gray-600 mb-4">موتورهای با گشتاور بالا و سرعت قابل تنظیم برای سیستم‌های نقاله و انتقال مواد در صنایع مختلف</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            <span>نمایش محصولات مرتبط</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                    <img src="https://via.placeholder.com/600x300?text=Robot" alt="Robotics" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">رباتیک و اتوماسیون</h3>
+                        <p class="text-gray-600 mb-4">موتورهای سروو و استپر با دقت بالا برای کاربردهای رباتیک، موقعیت‌یابی دقیق و سیستم‌های کنترل حرکت</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            <span>نمایش محصولات مرتبط</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                    <img src="https://via.placeholder.com/600x300?text=Energy" alt="Energy" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">صنایع انرژی و نیروگاهی</h3>
+                        <p class="text-gray-600 mb-4">موتورهای پر قدرت و با قابلیت کار مداوم برای صنایع نفت، گاز، نیروگاهی و انرژی‌های تجدیدپذیر</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            <span>نمایش محصولات مرتبط</span>
+                            <i class="fas fa-chevron-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">درباره دنیای موتورهای صنعتی</h2>
+                    <p class="text-gray-600 mb-4">شرکت دنیای موتورهای صنعتی با بیش از دو دهه تجربه در زمینه تأمین، مشاوره و توزیع انواع موتورهای الکتریکی و سیستم های صنعتی فعالیت می‌کند. ما با همکاری با برترین تولیدکنندگان داخلی و بین‌المللی، سبد کاملی از محصولات و خدمات فنی را ارائه می‌دهیم.</p>
+                    <p class="text-gray-600 mb-6">تیم متخصص ما شامل مهندسین برق و مکانیک با تجربه در صنعت موتورهای الکتریکی همواره آماده ارائه مشاوره فنی و راهنمایی برای انتخاب مناسب‌ترین موتور با توجه به نیازهای خاص هر پروژه هستند.</p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="bg-blue-50 p-4 rounded-lg flex-1 min-w-[150px]">
+                            <div class="text-blue-600 font-bold text-2xl mb-1">22+</div>
+                            <div class="text-gray-600">سال تجربه</div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg flex-1 min-w-[150px]">
+                            <div class="text-blue-600 font-bold text-2xl mb-1">650+</div>
+                            <div class="text-gray-600">پروژه موفق</div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg flex-1 min-w-[150px]">
+                            <div class="text-blue-600 font-bold text-2xl mb-1">200+</div>
+                            <div class="text-gray-600">مدل موتور</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-3 space-x-reverse">
+                        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition flex items-center">
+                            <i class="fas fa-users ml-2"></i>
+                            <span>تیم ما</span>
+                        </button>
+                        <button class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition flex items-center">
+                            <i class="fas fa-history ml-2"></i>
+                            <span>تاریخچه شرکت</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://via.placeholder.com/600x400?text=Our+Facility" alt="About Us" class="rounded-lg shadow-lg w-full">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg w-3/4">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-medal text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">تاییدیه کیفیت ISO 9001</h4>
+                                <p class="text-gray-600 text-sm">دارای گواهینامه بین‌المللی کیفیت</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Section -->
+            <div class="mt-16">
+                <h3 class="text-xl font-bold mb-6 text-center">تیم متخصصان ما</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                        <img src="https://via.placeholder.com/400x300?text=Engineer" alt="Engineer" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-bold">مهندس محمد رضایی</h4>
+                            <p class="text-gray-600 text-sm mb-2">کارشناسی ارشد مهندسی برق - قدرت</p>
+                            <div class="flex space-x-2 space-x-reverse">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">موتورهای AC</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">سیستم های درایو</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                        <img src="https://via.placeholder.com/400x300?text=Engineer" alt="Engineer" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-bold">مهندس فاطمه محمدی</h4>
+                            <p class="text-gray-600 text-sm mb-2">کارشناسی ارشد مهندسی مکانیک</p>
+                            <div class="flex space-x-2 space-x-reverse">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">موتورهای DC</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">سیستم های کنترل</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                        <img src="https://via.placeholder.com/400x300?text=Engineer" alt="Engineer" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-bold">مهندس علی کریمی</h4>
+                            <p class="text-gray-600 text-sm mb-2">کارشناسی ارشد مهندسی صنایع</p>
+                            <div class="flex space-x-2 space-x-reverse">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">بهینه سازی انرژی</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">تحلیل هزینه</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                        <img src="https://via.placeholder.com/400x300?text=Engineer" alt="Engineer" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-bold">مهندس زهرا احمدی</h4>
+                            <p class="text-gray-600 text-sm mb-2">کارشناسی ارشد مهندسی رباتیک</p>
+                            <div class="flex space-x-2 space-x-reverse">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">موتورهای سروو</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">سیستم های اتوماسیون</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">تماس با ما</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">اطلاعات تماس</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-map-marker-alt text-blue-600 mt-1 ml-2"></i>
+                            <div>
+                                <h4 class="font-bold">آدرس:</h4>
+                                <p class="text-gray-600">تهران، میدان فاطمی، خیابان حافظ، پلاک 87، طبقه سوم</p>
+                                <a href="#" class="text-blue-600 text-sm mt-1 inline-block flex items-center">
+                                    <i class="fas fa-map-marked-alt ml-2"></i>
+                                    <span>نمایش روی نقشه</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-phone-alt text-blue-600 mt-1 ml-2"></i>
+                            <div>
+                                <h4 class="font-bold">تلفن:</h4>
+                                <p class="text-gray-600">021-88776655</p>
+                                <p class="text-gray-600">09123456789</p>
+                                <p class="text-gray-600">پشتیبانی فنی: 021-87654321</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-blue-600 mt-1 ml-2"></i>
+                            <div>
+                                <h4 class="font-bold">ایمیل:</h4>
+                                <p class="text-gray-600">info@motor-world.ir</p>
+                                <p class="text-gray-600">technical@motor-world.ir</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">ساعات کاری:</h4>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                            <div class="flex justify-between py-2 border-b border-gray-100">
+                                <span class="text-gray-600">شنبه تا چهارشنبه:</span>
+                                <span class="font-medium">8:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-100">
+                                <span class="text-gray-600">پنجشنبه:</span>
+                                <span class="font-medium">8:00 - 14:00</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span class="text-gray-600">جمعه:</span>
+                                <span class="font-medium">تعطیل</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">ما را در شبکه‌های اجتماعی دنبال کنید:</h4>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <a href="#" class="bg-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-purple-700 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="bg-blue-400 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-500 transition">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="#" class="bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-gray-900 transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">فرم درخواست مشاوره</h3>
+                    <form class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">نام و نام خانوادگی *</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="company" class="block text-gray-700 mb-2">نام شرکت (اختیاری)</label>
+                            <input type="text" id="company" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2">آدرس ایمیل *</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2">شماره تماس *</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 mb-2">موضوع درخواست *</label>
+                            <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <option value="">انتخاب کنید</option>
+                                <option>مشاوره فنی موتورها</option>
+                                <option>استعلام قیمت</option>
+                                <option>درخواست کاتالوگ</option>
+                                <option>درخواست نمایندگی</option>
+                                <option>سایر موارد</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2">توضیحات *</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition w-full">
+                            ارسال درخواست
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">
+                        <img src="https://via.placeholder.com/50x50?text=MW" alt="Logo" class="h-10 rounded-full border-2 border-white inline-block">
+                        <span class="mr-2">دنیای موتورهای صنعتی</span>
+                    </h3>
+                    <p class="text-gray-400 mb-4">تخصصی ترین مرجع موتورهای الکتریکی و صنعتی با بیش از 20 سال سابقه درخشان در خدمت صنعت کشور</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="bg-gray-700 hover:bg-purple-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-blue-400 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">محصولات</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">موتورهای AC سه فاز</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">موتورهای DC</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">موتورهای سروو</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">موتورهای پله‌ای</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">موتورهای خطی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">لوازم و تجهیزات جانبی</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">خدمات</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">مشاوره فنی مهندسی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">بازرسی و ارزیابی موتورها</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">برنامه تعمیر و نگهداری</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">بهینه سازی مصرف انرژی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">آموزش و سمینارهای تخصصی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">پشتیبانی 24/7</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">اطلاعات تماس</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt ml-2 text-gray-400"></i>
+                            <span class="text-gray-400">تهران، میدان فاطمی، خیابان حافظ، پلاک 87</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt ml-2 text-gray-400"></i>
+                            <a href="tel:02188776655" class="text-gray-400 hover:text-white transition">021-88776655</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope ml-2 text-gray-400"></i>
+                            <a href="mailto:info@motor-world.ir" class="text-gray-400 hover:text-white transition">info@motor-world.ir</a>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="ml-2">
+                                <img src="https://via.placeholder.com/100x40?text=ISO" alt="ISO" class="h-10">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 1403 کلیه حقوق برای شرکت دنیای موتورهای صنعتی محفوظ است.</p>
+                <div class="flex flex-wrap gap-2">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">قوانین و مقررات</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">حریم خصوصی</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">فرصت‌های شغلی</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Motor type tabs functionality
+        const motorTypeTabs = document.querySelectorAll('.motor-type-tab');
+        motorTypeTabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                motorTypeTabs.forEach(t => t.classList.remove('active', 'bg-blue-600', 'text-white'));
+                tab.classList.add('active', 'bg-blue-600', 'text-white');
+            });
+            
+            // Set first tab as active by default
+            if (index === 0) {
+                tab.classList.add('active', 'bg-blue-600', 'text-white');
+            }
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('درخواست شما با موفقیت ثبت شد. کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.');
+                this.reset();
+            });
+        }
+        
+        // Interactive motor diagram
+        const diagramParts = document.querySelectorAll('.diagram-part');
+        diagramParts.forEach(part => {
+            part.addEventListener('mouseenter', () => {
+                const infoId = part.getAttribute('data-info') + '-info';
+                const infoBox = document.getElementById(infoId);
+                if (infoBox) {
+                    // Hide all other info boxes first
+                    document.querySelectorAll('.diagram-info').forEach(box => {
+                        box.style.display = 'none';
+                    });
+                    
+                    infoBox.style.display = 'block';
+                    infoBox.style.left = 'calc(100% + 10px)';
+                    infoBox.style.top = '0';
+                    
+                    // Adjust position if it goes off-screen
+                    const diagramRect = part.closest('.motor-diagram').getBoundingClientRect();
+                    const infoRect = infoBox.getBoundingClientRect();
+                    
+                    if (infoRect.right > window.innerWidth) {
+                        infoBox.style.left = 'auto';
+                        infoBox.style.right = 'calc(100% + 10px)';
+                    }
+                    
+                    if (infoRect.bottom > window.innerHeight) {
+                        infoBox.style.top = 'auto';
+                        infoBox.style.bottom = '0';
+                    }
+                }
+            });
+            
+            part.addEventListener('mouseleave', () => {
+                const infoId = part.getAttribute('data-info') + '-info';
+                const infoBox = document.getElementById(infoId);
+                if (infoBox) {
+                    setTimeout(() => {
+                        infoBox.style.display = 'none';
+                    }, 200);
+                }
+            });
+        });
+        
+        // Calculate and set radial graph percentage
+        const radialGraphs = document.querySelectorAll('.radial-fill');
+        radialGraphs.forEach(graph => {
+            const percentageText = graph.nextElementSibling.textContent;
+            const percentage = parseFloat(percentageText);
+            
+            if (!isNaN(percentage)) {
+                graph.style.setProperty('--percentage', percentage + '%');
+                
+                // Set different colors based on percentage
+                if (percentage >= 85) {
+                    graph.style.background = 'conic-gradient(#10b981 0% var(--percentage))';
+                } else if (percentage >= 70) {
+                    graph.style.background = 'conic-gradient(#3b82f6 0% var(--percentage))';
+                } else {
+                    graph.style.background = 'conic-gradient(#ef4444 0% var(--percentage))';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
